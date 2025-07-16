@@ -23,17 +23,23 @@ This project demonstrates the process of taking a state-of-the-art pre-trained f
     ```bash
     python scripts/prepare_dataset.py
     ```
-4.  **Run Baseline Evaluation**:
+4.  **Run process row images**:
+    ```bash
+    python scripts/process_row_images.py
+    ```
+    This will save processed images to the `outputs/processed_images` directory.
+
+5.  **Run Baseline Evaluation**:
     ```bash
     python scripts/run_baseline_eval.py
     ```
     This will save plots and metrics to the `outputs/baseline` directory.
-5.  **Fine-Tune the Model**:
+6.  **Fine-Tune the Model**:
     ```bash
     python scripts/run_finetuning.py
     ```
     Model checkpoints will be saved in `outputs/checkpoints`.
-6.  **Run Final Evaluation**:
+7.  **Run Final Evaluation**:
     ```bash
     python scripts/run_final_eval.py
     ```
