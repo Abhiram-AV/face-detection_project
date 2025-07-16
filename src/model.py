@@ -15,7 +15,6 @@ from src.config import (
 )
 
 # Inference Model (ONNX-based)
-
 class FaceRecognitionModel:
     def __init__(self, model_name=PRETRAINED_MODEL_NAME):
         print(f"Initializing FaceAnalysis app with model: {model_name} on ctx_id={GPU_ID}")
@@ -39,12 +38,12 @@ class FaceRecognitionModel:
                 providers_list = ['CUDAExecutionProvider', 'DmlExecutionProvider', 'CPUExecutionProvider']
                 temp_model.prepare(ctx_id=GPU_ID, providers=providers_list)
                 self.landmark_model = temp_model
-                print("✅ Loaded '2d106det' (landmark_2d_106) via model_zoo fallback.")
+                print("Loaded '2d106det' (landmark_2d_106) via model_zoo fallback.")
             except Exception as e:
                 print(f"Error loading landmark model: {e}")
 
         if self.landmark_model is None:
-            raise RuntimeError("❌ 'landmark_2d_106' model not found. Ensure InsightFace is properly set up.")
+            raise RuntimeError("'landmark_2d_106' model not found. Ensure InsightFace is properly set up.")
 
     def get_embeddings(self, image_paths):
         embeddings = []
@@ -92,7 +91,6 @@ class FaceRecognitionModel:
 
 
 # Fine-tuning Model (PyTorch)
-
 class ArcFaceBackbone(nn.Module):
     def __init__(self, embedding_size=512):
         super().__init__()
