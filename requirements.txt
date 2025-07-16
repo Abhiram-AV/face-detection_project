@@ -1,0 +1,11 @@
+torch
+torchvision
+torchaudio
+numpy
+scikit-learn
+matplotlib
+insightface
+onnxruntime
+onnxruntime-gpu
+opencv-python
+tqdm
